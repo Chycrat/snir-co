@@ -1,6 +1,6 @@
 # snir-co
 
-Romain Chrétien -> Chycrat \n
-Allan Brochard -> Allbrochard \n
-Valentin Hallay -> Uprex \n
-Ulrich Hassed -> TheKabyle \n
+Romain Chrétien -> Chycrat      
+Allan Brochard -> Allbrochard       
+Valentin Hallay -> Uprex        
+Ulrich Hassed -> TheKabyle           
