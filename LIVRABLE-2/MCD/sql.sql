@@ -159,10 +159,49 @@ CREATE TABLE MADERA_COUPE(
 # Table: MADERA_PROJET
 #------------------------------------------------------------
 
+CREATE TABLE MADERA_PROJET(
+        id_projet                Int  Auto_increment  NOT NULL ,
+        nom_projet               Varchar (100) NOT NULL ,
+        date_creation_projet     Date NOT NULL ,
+        date_modification_projet Date NOT NULL ,
+        Nom_commercial           Varchar (100) NOT NULL ,
+        Prenom_commercial        Varchar (100) NOT NULL ,
+        id_plan                  Int NOT NULL
+	,CONSTRAINT MADERA_PROJET_PK PRIMARY KEY (id_projet)
+
+	,CONSTRAINT MADERA_PROJET_MADERA_PLAN_FK FOREIGN KEY (id_plan) REFERENCES MADERA_PLAN(id_plan)
+)ENGINE=InnoDB;
 
 
+#------------------------------------------------------------
+# Table: MADERA_CLIENT
+#------------------------------------------------------------
+
+CREATE TABLE MADERA_CLIENT(
+        id_client        Int  Auto_increment  NOT NULL ,
+        nom_client       Varchar (255) NOT NULL ,
+        code_client      Int NOT NULL ,
+        mdp_client       Varchar (100) NOT NULL ,
+        telephone_client Int NOT NULL ,
+        adresse_client   Varchar (255) NOT NULL ,
+        email_client     Varchar (255) NOT NULL ,
+        id_projet        Int NOT NULL
+	,CONSTRAINT MADERA_CLIENT_PK PRIMARY KEY (id_client)
+
+	,CONSTRAINT MADERA_CLIENT_MADERA_PROJET_FK FOREIGN KEY (id_projet) REFERENCES MADERA_PROJET(id_projet)
+)ENGINE=InnoDB;
 
 
-	=======================================================================
-	   Désolé, il faut activer cette version pour voir la suite du script ! 
-	=======================================================================
+#------------------------------------------------------------
+# Table: COMPOSANT_MODULE
+#------------------------------------------------------------
+
+CREATE TABLE COMPOSANT_MODULE(
+        id_composant Int NOT NULL ,
+        id_module    Int NOT NULL
+	,CONSTRAINT COMPOSANT_MODULE_PK PRIMARY KEY (id_composant,id_module)
+
+	,CONSTRAINT COMPOSANT_MODULE_MADERA_COMPOSANT_FK FOREIGN KEY (id_composant) REFERENCES MADERA_COMPOSANT(id_composant)
+	,CONSTRAINT COMPOSANT_MODULE_MADERA_MODULE0_FK FOREIGN KEY (id_module) REFERENCES MADERA_MODULE(id_module)
+)ENGINE=InnoDB;
+
