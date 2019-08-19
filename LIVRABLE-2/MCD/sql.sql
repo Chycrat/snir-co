@@ -164,8 +164,6 @@ CREATE TABLE MADERA_PROJET(
         nom_projet               Varchar (100) NOT NULL ,
         date_creation_projet     Date NOT NULL ,
         date_modification_projet Date NOT NULL ,
-        Nom_commercial           Varchar (100) NOT NULL ,
-        Prenom_commercial        Varchar (100) NOT NULL ,
         id_plan                  Int NOT NULL
 	,CONSTRAINT MADERA_PROJET_PK PRIMARY KEY (id_projet)
 
@@ -189,6 +187,22 @@ CREATE TABLE MADERA_CLIENT(
 	,CONSTRAINT MADERA_CLIENT_PK PRIMARY KEY (id_client)
 
 	,CONSTRAINT MADERA_CLIENT_MADERA_PROJET_FK FOREIGN KEY (id_projet) REFERENCES MADERA_PROJET(id_projet)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: MADERA_COMMERCIAL
+#------------------------------------------------------------
+
+CREATE TABLE MADERA_COMMERCIAL(
+        id_commercial           Int  Auto_increment  NOT NULL ,
+        prenom_commercial       Varchar (50) NOT NULL ,
+        nom_commercial          Varchar (50) NOT NULL ,
+        mot_de_passe_commerical Varchar (50) NOT NULL ,
+        id_projet               Int NOT NULL
+	,CONSTRAINT MADERA_COMMERCIAL_PK PRIMARY KEY (id_commercial)
+
+	,CONSTRAINT MADERA_COMMERCIAL_MADERA_PROJET_FK FOREIGN KEY (id_projet) REFERENCES MADERA_PROJET(id_projet)
 )ENGINE=InnoDB;
 
 
