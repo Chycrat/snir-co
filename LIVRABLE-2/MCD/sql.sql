@@ -38,22 +38,6 @@ CREATE TABLE MADERA_DEVIS(
 
 
 #------------------------------------------------------------
-# Table: MADERA_FACTURE
-#------------------------------------------------------------
-
-CREATE TABLE MADERA_FACTURE(
-        id_facture   Int  Auto_increment  NOT NULL ,
-        code_facture Int NOT NULL ,
-        date_facture Datetime NOT NULL ,
-        prix_facture Int NOT NULL ,
-        id_devis     Int NOT NULL
-	,CONSTRAINT MADERA_FACTURE_PK PRIMARY KEY (id_facture)
-
-	,CONSTRAINT MADERA_FACTURE_MADERA_DEVIS_FK FOREIGN KEY (id_devis) REFERENCES MADERA_DEVIS(id_devis)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
 # Table: MADERA_PLAN
 #------------------------------------------------------------
 
